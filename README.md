@@ -17,14 +17,14 @@ An End-to-End Deep Learning Framework for High-Throughput Pose Estimation and Be
 
 ---
 
-## 📖 Overview
+## Overview
 
 
 The system provides an automated solution for nematode pose estimation and behavioral analysis using **YOLO11-Pose** with 5 keypoints (head, 3 body segments, tail), enabling comprehensive tracking and quantification of locomotion patterns.
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 ├── datasets/                    # Training datasets
@@ -43,14 +43,14 @@ The system provides an automated solution for nematode pose estimation and behav
 
 ---
 
-## ✨ Key Features
+## Key Features
 
-### 🎯 Keypoint-Based Pose Estimation
+### Keypoint-Based Pose Estimation
 - **5 anatomical keypoints**: Head → Body1 → Body2 → Body3 → Tail
 - YOLO11-Pose architecture for real-time detection
 - Robust tracking with persistent ID assignment
 
-### 📊 Multi-Dimensional Analysis
+### Multi-Dimensional Analysis
 
 #### Single-Worm Analysis (`Single-worm-analysis.py`)
 - **Kinematics**: Speed profiles for each body segment
@@ -67,7 +67,7 @@ The system provides an automated solution for nematode pose estimation and behav
 
 ---
 
-## 🛠️ Installation
+## Installation
 
 ### Prerequisites
 - Python 3.8+
@@ -97,7 +97,7 @@ seaborn>=0.12.0
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 ### 1. Training
 
@@ -164,7 +164,7 @@ Where:
 
 ---
 
-## 📊 Behavioral Analysis
+## Behavioral Analysis
 
 ### Single-Worm Analysis
 
@@ -273,7 +273,7 @@ PIROUETTE_ANGULAR_VELOCITY = 30  # deg/s
 
 ---
 
-## 🔧 Utilities
+## Utilities
 
 ### Video to Frames
 
@@ -292,7 +292,7 @@ save_interval = 1  # Extract every N frames
 
 ---
 
-## 📖 Data Format
+## Data Format
 
 ### Training Data (`data.yaml`)
 
@@ -317,7 +317,7 @@ Where `v` is visibility flag (0=not labeled, 1=labeled but occluded, 2=visible)
 
 ---
 
-## 📊 Example Results
+## Example Results
 
 ### Speed Analysis
 - **Mean Speed**: 12.5 ± 3.2 pixels/s
@@ -346,7 +346,7 @@ If you use this code in your research, please cite:
   title={High-Throughput Behavioral Phenotyping Cascade Framework for C. elegans: 
          From Segmentation to Tracking and Multi-Dimensional Quantification},
   author={Liu, Xiaoke and Li, Boao and Huo, Jing and Han, Xiaoqing},
-  journal={Submitted},
+  journal={},
   year={2025},
   affiliation={Shandong Second Medical University}
 }
@@ -354,7 +354,7 @@ If you use this code in your research, please cite:
 
 ---
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 This work was supported by:
 - **Natural Science Foundation of Shandong Province** (Grant No. ZR2024QF228, ZR2024QA176)
@@ -364,13 +364,13 @@ We thank the [Ultralytics YOLO](https://github.com/ultralytics/ultralytics) team
 
 ---
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see [LICENSE](LICENSE) for details.
 
 ---
 
-## 📧 Contact
+## Contact
 
 - **Corresponding Author**: Xiaoqing Han (hanxiaoqing@sdsmu.edu.cn)
 - **Institution**: Shandong Second Medical University
