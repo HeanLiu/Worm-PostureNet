@@ -337,7 +337,7 @@ Where `v` is visibility flag (0=not labeled, 1=labeled but occluded, 2=visible)
 
 ---
 
-## 📚 Citation
+## Citation
 
 If you use this code in your research, please cite:
 
