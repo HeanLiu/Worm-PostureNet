@@ -11,7 +11,7 @@
 
 An End-to-End Deep Learning Framework for High-Throughput Pose Estimation and Behavioral Profiling in Caenorhabditis elegans
 
-[Paper](#-citation) | [Installation](#-installation) | [Quick Start](#-quick-start) | [Analysis](#-behavioral-analysis)
+[Paper](#-citation) | [Installation](#-installation) | [Quick Start](#-quick-start) | [Annotation](#-keypoint-annotation-guide) | [Analysis](#-behavioral-analysis)
 
 </div>
 
@@ -164,6 +164,95 @@ Where:
 
 ---
 
+## Keypoint Annotation Guide
+
+### Annotation Tool
+
+We use **[LabelMe](https://github.com/labelmeai/labelme)** for keypoint annotation. Its AI-assisted mask labeling (via SAM2) and point creation tools allow efficient and precise annotation of worm body keypoints in microscopy images.
+
+![Annotation Example](docs/annotation_example.png)
+> *Example of a labeled worm in LabelMe, showing the 5 keypoints (head → body-1 → body-2 → body-3 → tail) placed along the body midline.*
+
+---
+
+### Keypoint Definition
+
+Each worm is annotated with **5 ordered keypoints** along its body axis, from head to tail:
+
+| Index | Label | Color | Description |
+|-------|-------|-------|-------------|
+| KP1 | `head` | 🟢 Green | Anterior tip of the worm |
+| KP2 | `body-1` | 🟡 Yellow | First body segment (~25% body length) |
+| KP3 | `body-2` | 🔵 Blue | Mid-body segment (~50% body length) |
+| KP4 | `body-3` | 🟣 Purple | Third body segment (~75% body length) |
+| KP5 | `tail` | 🩵 Cyan | Posterior tip of the worm |
+
+> **Important**: Keypoints must always be placed in **head-to-tail order** (KP1 → KP5). Consistent ordering is critical for downstream behavioral analysis, including direction detection and undulation phase propagation.
+
+---
+
+### Annotation Workflow
+
+**Step 1 — Bounding box**
+Use LabelMe's `Create AI-Polygon` or `Create Rectangle` tool to draw a tight bounding box around the entire worm body. Label this shape as `worm`.
+
+**Step 2 — Place keypoints in order**
+Use LabelMe's `Create Point` tool to place keypoints **sequentially from head to tail** (KP1 → KP5) along the worm's midline. Assign the corresponding label (`head`, `body-1`, `body-2`, `body-3`, `tail`) to each point.
+
+**Step 3 — Determining head vs. tail orientation**
+- The head is typically narrower and more pointed than the tail in brightfield microscopy.
+- When orientation is ambiguous (e.g., coiled posture), use motion context from adjacent video frames to determine the direction of travel.
+- If truly ambiguous, mark the keypoint visibility flag as `v=1` (labeled but uncertain) rather than `v=2` (fully visible).
+
+**Step 4 — Handling occlusion**
+- Skip worms that are more than 50% occluded or outside the field of view.
+- For partially visible worms, label only the visible keypoints. Set invisible keypoints to `v=0` with coordinates `(0, 0)` during export conversion.
+
+---
+
+### Exporting to YOLO Pose Format
+
+After annotation in LabelMe, convert the `.json` output files to YOLO pose `.txt` format using a conversion script. Each line in the output `.txt` file represents one worm instance:
+
+```
+<class_id> <x_c> <y_c> <w> <h>  <x1> <y1> <v1>  <x2> <y2> <v2>  ... <x5> <y5> <v5>
+```
+
+- All coordinates are **normalized to [0, 1]** relative to image width and height
+- `v` (visibility) flag: `0` = not labeled, `1` = labeled but occluded, `2` = fully visible
+
+**Example annotation line:**
+```
+0 0.452 0.631 0.089 0.312  0.438 0.412 2  0.441 0.498 2  0.449 0.584 2  0.453 0.670 2  0.461 0.751 2
+```
+
+---
+
+## Data Format
+
+### Training Data (`data.yaml`)
+
+YOLO pose format with 5 keypoints:
+
+```yaml
+train: datasets/train/images
+val: datasets/val/images
+test: datasets/test/images
+
+nc: 1  # Number of classes (worm)
+kpt_shape: [5, 2]  # 5 keypoints, (x,y) coordinates
+
+names: ['worm']
+```
+
+**Annotation Format** (TXT files):
+```
+class_id x_center y_center width height x1 y1 v1 x2 y2 v2 ... x5 y5 v5
+```
+Where `v` is visibility flag (0=not labeled, 1=labeled but occluded, 2=visible)
+
+---
+
 ## Behavioral Analysis
 
 ### Single-Worm Analysis
@@ -289,31 +378,6 @@ video_path = "outputs/output_video_tracked-with-wh.avi"
 output_dir = "outputs/frames"
 save_interval = 1  # Extract every N frames
 ```
-
----
-
-## Data Format
-
-### Training Data (`data.yaml`)
-
-YOLO pose format with 5 keypoints:
-
-```yaml
-train: datasets/train/images
-val: datasets/val/images
-test: datasets/test/images
-
-nc: 1  # Number of classes (worm)
-kpt_shape: [5, 2]  # 5 keypoints, (x,y) coordinates
-
-names: ['worm']
-```
-
-**Annotation Format** (TXT files):
-```
-class_id x_center y_center width height x1 y1 v1 x2 y2 v2 ... x5 y5 v5
-```
-Where `v` is visibility flag (0=not labeled, 1=labeled but occluded, 2=visible)
 
 ---
 
