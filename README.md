@@ -309,7 +309,7 @@ SAVE_DIR = "outputs/"       # Output directory
 |----------|----------|
 | **Speed** | `center_speed`, `speed_head`, `speed_body1/2/3`, `speed_tail`, `avg_speed` |
 | **Direction** | `movement_angle`, `body_angle`, `direction_change` |
-| **Curvature** | `curvature` (mean of 3 segments), `dominant_freq`, `power_ratio` |
+| **Curvature** | `curvature`, `dominant_freq`, `power_ratio` |
 | **Behavior** | `forward`, `backward`, `turn`, `omega`, `pause` |
 
 ## Utilities
