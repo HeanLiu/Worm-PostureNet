@@ -105,9 +105,11 @@ or kickstart your training with our publicly available dataset and pre-trained w
 
 [![Dataset](https://img.shields.io/badge/Dataset-Download-blue.svg)](https://drive.google.com/drive/folders/1R6kqE0lEfWFtJpNTTZv6d2onLVi4spOw?usp=drive_link) [![Weights](https://img.shields.io/badge/Weights-Download-success.svg)](https://drive.google.com/drive/folders/1R6kqE0lEfWFtJpNTTZv6d2onLVi4spOw?usp=drive_link)
 
-### Training Data (`data.yaml`)
+(Our dataset is based on secondary annotations of the [CSB-1](https://doi.org/10.5281/zenodo.7456803) and [DeepWormTracker](https://drive.google.com/drive/folders/1PM4Rvrz-V6p-xqAEWsz66tAKu4W5x8Mc) public datasets.)
 
-YOLO pose format with 5 keypoints:
+
+
+YOLO pose format with 5 keypoints(`data.yaml`):
 
 ```yaml
 train: datasets/train/images
