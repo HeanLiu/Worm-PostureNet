@@ -10,7 +10,9 @@
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![Dataset](https://img.shields.io/badge/Dataset-Google%20Drive-4285F4.svg?logo=googledrive&logoColor=white)](https://drive.google.com/drive/folders/1R6kqE0lEfWFtJpNTTZv6d2onLVi4spOw?usp=drive_link)
 
-![worm](docs/worm.png)
+<p align="center">
+  <img src="docs/worm.png" alt="worm" width="150" />
+</p>
 
 An End-to-End Deep Learning Framework for High-Throughput Pose Estimation and Behavioral Profiling in Caenorhabditis elegans
 
