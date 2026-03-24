@@ -106,9 +106,21 @@ or kickstart your training with our publicly available dataset and pre-trained w
 
 [![Dataset](https://img.shields.io/badge/Dataset-Download-blue.svg)](https://drive.google.com/drive/folders/1R6kqE0lEfWFtJpNTTZv6d2onLVi4spOw?usp=drive_link) [![Weights](https://img.shields.io/badge/Weights-Download-success.svg)](https://drive.google.com/drive/folders/1R6kqE0lEfWFtJpNTTZv6d2onLVi4spOw?usp=drive_link)
 
-```bash
-python train.py
+### Training Data (`data.yaml`)
+
+YOLO pose format with 5 keypoints:
+
+```yaml
+train: datasets/train/images
+val: datasets/val/images
+test: datasets/test/images
+
+nc: 1  # Number of classes (worm)
+kpt_shape: [5, 2]  # 5 keypoints, (x,y) coordinates
+
+names: ['worm']
 ```
+
 
 **Configuration** (in `train.py`):
 - Model: `yolo11s-pose.pt`
@@ -116,6 +128,10 @@ python train.py
 - Epochs: 300
 - Image size: 640
 - Batch size: 16
+
+```bash
+python train.py
+```
 
 ### 2. Single Image Prediction
 
@@ -237,30 +253,7 @@ Each line in the output `.txt` file represents one worm instance:
 
 ---
 
-## Data Format
 
-### Training Data (`data.yaml`)
-
-YOLO pose format with 5 keypoints:
-
-```yaml
-train: datasets/train/images
-val: datasets/val/images
-test: datasets/test/images
-
-nc: 1  # Number of classes (worm)
-kpt_shape: [5, 2]  # 5 keypoints, (x,y) coordinates
-
-names: ['worm']
-```
-
-**Annotation Format** (TXT files):
-```
-class_id x_center y_center width height x1 y1 v1 x2 y2 v2 ... x5 y5 v5
-```
-Where `v` is visibility flag (0=not labeled, 1=labeled but occluded, 2=visible)
-
----
 
 ## Behavioral Analysis
 
