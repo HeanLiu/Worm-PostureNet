@@ -334,24 +334,6 @@ output_dir = "outputs/frames"
 save_interval = 1  # Extract every N frames
 ```
 
----
-
-## Example Results
-
-### Speed Analysis
-- **Mean Speed**: 12.5 ± 3.2 pixels/s
-- **Flip Frequency**: 0.15 Hz
-- **Pause Ratio**: 25.3%
-
-### Behavioral Distribution
-- Forward: 45.2%
-- Backward: 18.7%
-- Turn: 15.6%
-- Omega: 2.3%
-- Pause: 18.2%
-
----
-
 ## Citation
 
 If you use this code in your research, please cite:
