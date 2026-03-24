@@ -313,57 +313,6 @@ SAVE_DIR = "outputs/"       # Output directory
 | **Curvature** | `curvature` (mean of 3 segments), `dominant_freq`, `power_ratio` |
 | **Behavior** | `forward`, `backward`, `turn`, `omega`, `pause` |
 
-### Population Analysis
-
-Analyze multiple worms simultaneously:
-
-```bash
-python Multi-worms-analysis.py
-```
-
-**Configuration:**
-```python
-SPEED_THRESHOLD = 0.05           # Forward/backward threshold
-PAUSE_THRESHOLD = 0.01           # Stationary threshold
-OMEGA_ANGLE_THRESHOLD = 120      # Omega turn detection (degrees)
-COILING_CURVATURE_THRESHOLD = 2.0
-PIROUETTE_ANGULAR_VELOCITY = 30  # deg/s
-```
-
-**Generated Outputs:**
-
-1. **`population_behavior_analysis.png`** (9-panel figure)
-   - Group trajectory overlay
-   - Population speed (mean ± std)
-   - Population curvature (mean ± std)
-   - Body angle dynamics
-   - Contraction ratio
-   - Behavioral metrics boxplot
-   - Speed-curvature scatter
-   - Spatial occupancy heatmap
-   - Behavioral time budget (pie chart)
-
-2. **`population_behavior_animation.mp4`**
-   - Real-time trajectory animation
-   - Synchronized speed curves
-   - Synchronized curvature curves
-
-**Metrics Calculated:**
-
-| Metric | Description |
-|--------|-------------|
-| `mean_speed` | Average velocity (pixels/s) |
-| `flip_frequency` | Body flips per second (>90° changes) |
-| `pause_ratio` | Fraction of time stationary |
-| `omega_turns` | Count of omega-turn events |
-| `forward_ratio` | Fraction of time moving forward |
-| `backward_ratio` | Fraction of time moving backward |
-| `coiling_ratio` | Fraction of time in high-curvature state |
-| `pirouette_ratio` | Fraction of time in pirouette |
-| `wave_frequency` | Undulation frequency (Hz) |
-
----
-
 ## Utilities
 
 ### Video to Frames
@@ -396,10 +345,6 @@ save_interval = 1  # Extract every N frames
 - Turn: 15.6%
 - Omega: 2.3%
 - Pause: 18.2%
-
-### Undulation Characteristics
-- **Dominant Frequency**: 0.42 Hz
-- **Phase Delay** (Head→Tail): 0.18 s
 
 ---
 
