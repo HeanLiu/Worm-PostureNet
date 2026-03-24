@@ -295,18 +295,13 @@ SAVE_DIR = "outputs/"       # Output directory
 
 4. **`worm_{ID}_curvature_analysis.png`**
    - Curvature time series
-   - Curvature vs speed correlation
-   - Segmental curvature heatmap
+   - Max Absolute Curvature vs Directed Speed correlation
 
 5. **`worm_{ID}_behavior_stats.png`**
    - Behavior time budget (pie chart)
    - Temporal distribution
    - Speed/curvature distributions by behavior
 
-6. **`worm_{ID}_undulation_analysis.png`**
-   - Power spectral density
-   - Wave propagation across body
-   - Phase delays relative to head
 
 **Extracted Features:**
 
