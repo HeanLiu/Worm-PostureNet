@@ -268,7 +268,7 @@ python worm-analysis.py
 
 **Configuration:**
 ```python
-FRAME_RATE = 2              # Video frame rate (FPS)
+FRAME_RATE = 2.5              # Video frame rate (FPS)
 TARGET_WORM_ID = 10         # Worm ID to analyze
 SAVE_DIR = "outputs/"       # Output directory
 ```
