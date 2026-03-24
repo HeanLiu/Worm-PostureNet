@@ -41,8 +41,7 @@ The system provides an automated solution for nematode pose estimation and behav
 ├── track_modified.py            # Video tracking with trajectory visualization
 ├── Information-writing.py       # Tracking data extraction (frame-by-frame)
 │
-├── Single-worm-analysis.py      # Individual worm behavioral analysis
-├── Multi-worms-analysis.py      # Population-level behavioral analysis
+├── worm-analysis.py      # Individual worm behavioral analysis
 │
 └── video2image.py               # Video frame extraction utility
 ```
@@ -58,19 +57,12 @@ The system provides an automated solution for nematode pose estimation and behav
 
 ### Multi-Dimensional Analysis
 
-#### Single-Worm Analysis (`Single-worm-analysis.py`)
+#### Worm Analysis (`worm-analysis.py`)
 - **Kinematics**: Speed profiles for each body segment
 - **Direction**: Body angle, movement angle, direction changes
 - **Curvature**: Segmental curvature and undulation patterns
 - **Behavior Classification**: Forward, backward, turn, omega-turn, pause
 - **Frequency Analysis**: Undulation frequency via power spectral density
-
-#### Population Analysis (`Multi-worms-analysis.py`)
-- **Group Trajectory Visualization**: Spatial distribution and exploration patterns
-- **Population Statistics**: Aggregated speed, curvature, behavioral metrics
-- **Comparative Analysis**: Inter-individual variability
-- **Heatmaps**: Spatial occupancy and behavioral time budgets
-
 ---
 
 ## Installation
@@ -264,12 +256,12 @@ Each line in the output `.txt` file represents one worm instance:
 
 ## Behavioral Analysis
 
-### Single-Worm Analysis
+### Worm Analysis
 
 Perform comprehensive analysis on an individual worm:
 
 ```bash
-python Single-worm-analysis.py
+python worm-analysis.py
 ```
 
 **Configuration:**
