@@ -8,10 +8,10 @@
 [![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/)
 [![YOLO](https://img.shields.io/badge/YOLO-v11-red.svg)](https://github.com/ultralytics/ultralytics)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![Dataset](https://img.shields.io/badge/Dataset-Google%20Drive-4285F4.svg?logo=googledrive&logoColor=white)](https://drive.google.com/drive/folders/1R6kqE0lEfWFtJpNTTZv6d2onLVi4spOw?usp=drive_link)
 
 An End-to-End Deep Learning Framework for High-Throughput Pose Estimation and Behavioral Profiling in Caenorhabditis elegans
 
-[Paper](#-citation) | [Installation](#-installation) | [Quick Start](#-quick-start) | [Annotation](#-keypoint-annotation-guide) | [Analysis](#-behavioral-analysis)
 
 </div>
 
@@ -27,7 +27,6 @@ The system provides an automated solution for nematode pose estimation and behav
 ## Project Structure
 
 ```
-├── datasets/                    # Training datasets
 ├── ultralytics/                 # YOLO11 framework
 │
 ├── train.py                     # Model training script
@@ -77,7 +76,7 @@ The system provides an automated solution for nematode pose estimation and behav
 
 ```bash
 # Clone repository
-git clone https://github.com/yourusername/celegans-yolo-tracking.git
+git clone https://github.com/HeanLiu/Worm-PostureNet.git
 cd celegans-yolo-tracking
 
 # Install dependencies
@@ -101,7 +100,11 @@ seaborn>=0.12.0
 
 ### 1. Training
 
-Train YOLO11-Pose on your annotated dataset:
+Train YOLO11-Pose using your own custom dataset(The annotation tutorial is shown below)
+
+or kickstart your training with our publicly available dataset and pre-trained weights. 
+
+[![Dataset](https://img.shields.io/badge/Dataset-Download-blue.svg)](https://drive.google.com/drive/folders/1R6kqE0lEfWFtJpNTTZv6d2onLVi4spOw?usp=drive_link) [![Weights](https://img.shields.io/badge/Weights-Download-success.svg)](https://drive.google.com/drive/folders/1R6kqE0lEfWFtJpNTTZv6d2onLVi4spOw?usp=drive_link)
 
 ```bash
 python train.py
@@ -181,11 +184,11 @@ Each worm is annotated with **5 ordered keypoints** along its body axis, from he
 
 | Index | Label | Color | Description |
 |-------|-------|-------|-------------|
-| KP1 | `head` | 🟢 Green | Anterior tip of the worm |
-| KP2 | `body-1` | 🟡 Yellow | First body segment (~25% body length) |
-| KP3 | `body-2` | 🔵 Blue | Mid-body segment (~50% body length) |
-| KP4 | `body-3` | 🟣 Purple | Third body segment (~75% body length) |
-| KP5 | `tail` | 🩵 Cyan | Posterior tip of the worm |
+| KP1 | `head` |  Green | Anterior tip of the worm |
+| KP2 | `body-1` |  Yellow | First body segment (~25% body length) |
+| KP3 | `body-2` |  Blue | Mid-body segment (~50% body length) |
+| KP4 | `body-3` |  Purple | Third body segment (~75% body length) |
+| KP5 | `tail` |  Cyan | Posterior tip of the worm |
 
 > **Important**: Keypoints must always be placed in **head-to-tail order** (KP1 → KP5). Consistent ordering is critical for downstream behavioral analysis, including direction detection and undulation phase propagation.
 
@@ -212,7 +215,13 @@ Use LabelMe's `Create Point` tool to place keypoints **sequentially from head to
 
 ### Exporting to YOLO Pose Format
 
-After annotation in LabelMe, convert the `.json` output files to YOLO pose `.txt` format using a conversion script. Each line in the output `.txt` file represents one worm instance:
+After annotation in LabelMe, convert the `.json` output files to YOLO pose `.txt` format using a conversion script. 
+
+```bash
+python json2txt.py
+```
+
+Each line in the output `.txt` file represents one worm instance:
 
 ```
 <class_id> <x_c> <y_c> <w> <h>  <x1> <y1> <v1>  <x2> <y2> <v2>  ... <x5> <y5> <v5>
