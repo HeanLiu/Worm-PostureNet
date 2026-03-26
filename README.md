@@ -332,8 +332,7 @@ If you use this code in your research, please cite:
 
 ```bibtex
 @article{liu2025celegans,
-  title={High-Throughput Behavioral Phenotyping Cascade Framework for C. elegans: 
-         From Segmentation to Tracking and Multi-Dimensional Quantification},
+  title={Worm-PostureNet: An End-to-End Deep Learning Framework for High-Throughput Pose Estimation and Behavioral Profiling in Caenorhabditis elegans},
   author={Liu, Xiaoke and Li, Boao and Huo, Jing and Han, Xiaoqing},
   journal={},
   year={2025},
