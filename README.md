@@ -59,11 +59,10 @@ The system provides an automated solution for nematode pose estimation and behav
 ### Multi-Dimensional Analysis
 
 #### Worm Analysis (`worm-analysis.py`)
-- **Kinematics**: Speed profiles for each body segment
 - **Direction**: Body angle, movement angle, direction changes
+- **5 Point Speed** Customize the weights of five key points
 - **Curvature**: Segmental curvature and undulation patterns
 - **Behavior Classification**: Forward, backward, turn, omega-turn, pause
-- **Frequency Analysis**: Undulation frequency via power spectral density
 ---
 
 ## Installation
