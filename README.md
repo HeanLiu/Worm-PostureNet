@@ -29,6 +29,18 @@ An End-to-End Deep Learning Framework for High-Throughput Pose Estimation and Be
 
 The system provides an automated solution for nematode pose estimation and behavioral analysis using **YOLO11-Pose** with 5 keypoints (head, 3 body segments, tail), enabling comprehensive tracking and quantification of locomotion patterns.
 
+<table>
+  <tr>
+    <td align="center">
+      <img src="docs/worm2.png" width="1400">
+    </td>
+    <td align="center">
+      <video src="https://github.com/user-attachments/assets/f3eb7ef5-4769-4d5a-9854-a6b131074738" width="800" controls></video>
+    </td>
+  </tr>
+</table>
+
+
 ---
 
 ## Project Structure
@@ -342,15 +354,6 @@ If you use this code in your research, please cite:
 
 ---
 
-## Acknowledgments
-
-This work was supported by:
-- **Natural Science Foundation of Shandong Province** (Grant No. ZR2024QF228, ZR2024QA176)
-- **National Natural Science Foundation of China** (Grant No. 82301666)
-
-We thank the [Ultralytics YOLO](https://github.com/ultralytics/ultralytics) team for their open-source framework.
-
----
 
 ## License
 
@@ -358,10 +361,4 @@ This project is licensed under the MIT License - see [LICENSE](LICENSE) for deta
 
 ---
 
-## Contact
 
-- **Corresponding Author**: Xiaoqing Han (hanxiaoqing@sdsmu.edu.cn)
-- **Institution**: Shandong Second Medical University
-- **Issues**: [GitHub Issues](https://github.com/HeanLiu/Worm-PostureNet/issues)
-
----
