@@ -362,7 +362,7 @@ TARGET_FILES_DICT = {
 | **Curvature** | `curvature`, `dominant_freq`, `power_ratio` |
 | **Behavior** | `forward`, `backward`, `turn`, `omega`, `pause` |
 
-### Results Validation: 5-Point vs. Centroid Tracking
+### Results Validation: 5-Point vs. Centroid Tracking And Noise Validation
 
 
 
@@ -370,8 +370,11 @@ https://github.com/user-attachments/assets/c62cee82-7b2a-43eb-b08a-53cc07e26b34
 
 
 
-> *<strong>Synchronized Validation:</strong> During a macroscopic pause phase, the nematode's active head swings are clearly captured by the 5-Point Average Speed (red line) and Head Speed (green dashed line). In contrast, the traditional Centroid Speed (blue line) remains unresponsively flat.*
+> *<strong>Synchronized Validation:</strong> During a macroscopic pause phase, the worm's active head swings are clearly captured by the 5-Point Average Speed (red line) and Head Speed (green dashed line). In contrast, the traditional Centroid Speed (blue line) remains unresponsively flat.*
 
+<img width="1019" height="336" alt="noise" src="https://github.com/user-attachments/assets/b4f13fc9-ec9d-4b9b-b7e7-6b83feef78e5" />
+
+> *Frame-by-frame variations in bounding box or contour detection (tracking jitter) can introduce high-frequency noise into velocity calculations. For a stationary organism, centroid-based measurements may amplify these small positional shifts into velocity artifacts. The 5-point average speed provides a spatial smoothing effect; by averaging the displacement of multiple keypoints, it reduces the impact of isolated coordinate jitter.*
 
 ## Utilities
 
