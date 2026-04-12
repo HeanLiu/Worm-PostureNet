@@ -42,6 +42,7 @@ The system provides an automated solution for nematode pose estimation and behav
 ├── Information-writing.py       # Tracking data extraction (frame-by-frame)
 │
 ├── worm-analysis.py      # Individual worm behavioral analysis
+├── worm-population-analysis.py      # Multiple worm behavioral analysis
 │
 └── video2image.py               # Video frame extraction utility
 ```
