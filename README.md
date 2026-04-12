@@ -369,12 +369,13 @@ TARGET_FILES_DICT = {
 
 ### Results Validation: 5-Point vs. Centroid Tracking
 
-<p align="center">
-  <video src="https://github.com/user-attachments/assets/5f955531-bc31-4e0e-8df9-5ddce5f26f16" width="800" controls></video>
-<br>
 
-  <em><strong>Synchronized Validation:</strong> During a macroscopic pause phase, the nematode's active head swings are clearly captured by the 5-Point Average Speed (red line) and Head Speed (green dashed line). In contrast, the traditional Centroid Speed (blue line) remains unresponsively flat.</em>
-</p>
+
+https://github.com/user-attachments/assets/c62cee82-7b2a-43eb-b08a-53cc07e26b34
+
+
+
+> *<strong>Synchronized Validation:</strong> During a macroscopic pause phase, the nematode's active head swings are clearly captured by the 5-Point Average Speed (red line) and Head Speed (green dashed line). In contrast, the traditional Centroid Speed (blue line) remains unresponsively flat.*
 
 
 ## Utilities
