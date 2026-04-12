@@ -353,11 +353,6 @@ TARGET_FILES_DICT = {
    - Median-sorted individual profiles
    - Highlight of population heterogeneity
 
-6. **`population_raw_data_cleaned.csv`**
-   - Merged multi-worm kinematic dataset
-   - Data cleaning and filtering applied
-   - Ready for downstream statistical analysis
-
 **Extracted Features:**
 
 | Category | Features |
