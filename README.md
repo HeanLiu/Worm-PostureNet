@@ -311,6 +311,52 @@ SAVE_DIR = "outputs/"       # Output directory
    - Temporal distribution
    - Speed/curvature distributions by behavior
 
+### Worm Population Analysis
+
+Perform statistical analysis and kinematic comparisons across multiple worms or experimental groups from tracking data files:
+
+```bash
+
+python worm-population-analysis.py
+```
+
+**Configuration:**
+```python
+FRAME_RATE = 2.5                  # Video frame rate (FPS)
+SAVE_DIR = "path/to/output/*"     # Output directory for charts and data
+TARGET_FILES_DICT = {
+    "path/to/input/*.txt": 30     # Dict mapping tracking data file paths to the Top N longest-tracked worms to extract
+}
+```
+
+**Generated Outputs:**
+
+1. **`pop_1_behavior_pie.png`**
+   - Population-level behavioral time budget
+   - State distribution (Forward, Backward, Pause, Turn, Omega)
+
+2. **`pop_2_behavior_kinematics.png`**
+   - Locomotion speed across behavioral states
+   - Body curvature comparisons
+   - Kruskal-Wallis statistical test results
+
+3. **`pop_3_curvature_speed_regression.png`**
+   - Max absolute curvature vs forward speed
+   - Population-level correlation analysis (Pearson's r)
+
+4. **`pop_4_speed_violin.png`**
+   - Global speed distribution (Violin plots)
+   - Centroid speed vs 5-point average speed comparisons
+
+5. **`pop_5_individual_variation.png`**
+   - Inter-individual speed and curvature variations
+   - Median-sorted individual profiles
+   - Highlight of population heterogeneity
+
+6. **`population_raw_data_cleaned.csv`**
+   - Merged multi-worm kinematic dataset
+   - Data cleaning and filtering applied
+   - Ready for downstream statistical analysis
 
 **Extracted Features:**
 
@@ -320,6 +366,16 @@ SAVE_DIR = "outputs/"       # Output directory
 | **Direction** | `movement_angle`, `body_angle`, `direction_change` |
 | **Curvature** | `curvature`, `dominant_freq`, `power_ratio` |
 | **Behavior** | `forward`, `backward`, `turn`, `omega`, `pause` |
+
+### Results Validation: 5-Point vs. Centroid Tracking
+
+<p align="center">
+  <video src="https://github.com/user-attachments/assets/5f955531-bc31-4e0e-8df9-5ddce5f26f16" width="800" controls></video>
+<br>
+
+  <em><strong>Synchronized Validation:</strong> During a macroscopic pause phase, the nematode's active head swings are clearly captured by the 5-Point Average Speed (red line) and Head Speed (green dashed line). In contrast, the traditional Centroid Speed (blue line) remains unresponsively flat.</em>
+</p>
+
 
 ## Utilities
 
